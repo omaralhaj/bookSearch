@@ -11,25 +11,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static android.R.attr.x;
 
 
 public class BooksAdapter extends ArrayAdapter {
 
     public BooksAdapter(Activity c, ArrayList<Book> b) {
         super(c, 0, b);
-
-
     }
 
     public BooksAdapter(Activity c) {
         super(c, 0);
     }
 
-
     @NonNull
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
@@ -37,20 +32,12 @@ public class BooksAdapter extends ArrayAdapter {
 
         Book b = (Book) getItem(position);
         if (b != null) {
-
-
             TextView title = (TextView) convertView.findViewById(R.id.title);
-
             title.setText(b.getTitle());
-
             TextView author = (TextView) convertView.findViewById(R.id.author);
-
             author.setText("By: " + b.getAuthors());
 
         }
-
         return convertView;
     }
-
-
 }
